@@ -12,12 +12,17 @@ describe "propinas" {
 	}
 	
 	test "un cliente comedido paga un 20% de propina si ésta no supera su monto máximo" {
-		const clienteAmarrete = new ClienteComedido(montoMaximo=1200)
-		assert.equals(1200, clienteAmarrete.cuantoPaga(1000))
+		const clienteComedido = new ClienteComedido(montoMaximo=1200)
+		assert.equals(1200, clienteComedido.cuantoPaga(1000))
 	}
 	
 	test "un cliente comedido paga su monto máximo de propina si el 20% lo excede" {
-		const clienteAmarrete = new ClienteComedido(montoMaximo=10)
-		assert.equals(1010, clienteAmarrete.cuantoPaga(1000))
+		const clienteComedido = new ClienteComedido(montoMaximo=10)
+		assert.equals(1010, clienteComedido.cuantoPaga(1000))
+	}
+	
+	test "un cliente asalariado para en función de su salario" {
+		const clienteAsalariado = new ClienteAsalariado(salarioMensual = 20000)
+		assert.equals(1200, clienteAsalariado.cuantoPaga(1000))
 	}
 }

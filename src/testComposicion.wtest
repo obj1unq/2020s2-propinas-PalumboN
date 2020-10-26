@@ -20,4 +20,11 @@ describe "propinas" {
 		const clienteConBolsillo = new Cliente(propina=new Comedido(montoMaximo=10))
 		assert.equals(1010, clienteConBolsillo.cuantoPaga(1000))
 	}
+	
+	test "un cliente asalariado para en función de su salario" {
+		const clienteAsalariado = new Cliente(salarioMensual = 20000, propina = null)
+		const propinaAsalariada = new Asalariada(cliente = clienteAsalariado)
+		clienteAsalariado.propina(propinaAsalariada)
+		assert.equals(1200, clienteAsalariado.cuantoPaga(1000))
+	}
 }
